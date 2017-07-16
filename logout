@@ -1,0 +1,2 @@
+#warning this will kill the user process
+whoami | sudo pkill -9 -u
