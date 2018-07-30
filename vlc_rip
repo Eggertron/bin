@@ -2,7 +2,7 @@
 
 BIN=./vlc.exe
 SAMPLERATE=44100
-BITRATE=128
+BITRATE=192
 if [ -z $1 ]; then
         echo "Usage: $0 <input file> <outputfile> <start seconds> <end seconds>"
         exit 1
