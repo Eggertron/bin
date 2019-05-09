@@ -1,0 +1,7 @@
+# Custom Scripts
+  
+update_wallpaper() {
+  if [ -d ~/Pictures/wallpapers ]; then
+    feh --randomize --bg-fill ~/Pictures/wallpapers/*
+  fi
+}
