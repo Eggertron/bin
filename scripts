@@ -5,3 +5,17 @@ update_wallpaper() {
     feh --randomize --bg-fill ~/Pictures/wallpapers/*
   fi
 }
+
+BACKLIGHT="/sys/class/backlight/intel_backlight/brightness"
+
+backlight() {
+  echo $(expr $(cat $BACKLIGHT) + $1) | sudo tee $BACKLIGHT;
+}
+
+bu() {
+  backlight 50
+}
+
+bd() {
+  backlight -50
+}
