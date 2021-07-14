@@ -6,6 +6,4 @@ TRANSCODEMP3="#transcode{acodec=mp3,ab=128,channels=2,samplerate=44100}:std{acce
 PARAMS='-I dummy --no-sout-video --sout-audio --no-sout-rtp-sap --no-sout-standard-sap --ttl=1 --sout-keep --sout '$TRANSCODEMP3' '$1' vlc://quit'
 PARAMSS='--sout "#transcode{acodec=mp3,ab=128,channels=2,samplerate=44100}:std{access=file,mux=raw,dst=output.mp3}" '$1' vlc://quit'
 echo $PARAMS
-echo "must update youtube ula"
-#sudo curl -o ${VLC_LUA_PATH}/youtube.lua $YOUTUBE_LUA_URL
 vlc $PARAMS
