@@ -1,0 +1,31 @@
+#!/bin/bash
+
+# something similar to md5sum -c FILENAME
+# first create a cksum file using
+# $ cksum * > cksum.crc
+
+
+if [[ -z "$1" ]]
+then
+    echo "Usage $0 CKSUMFILENAME"
+    exit -1
+fi
+
+input="$1"
+
+while IFS= read -r line
+do
+    stringarray=($line)
+    filename=${stringarray[2]}
+    if [ "$filename" = "$input" ]  # skip checking if it's the input file
+    then
+        continue
+    fi
+    filecheck=`cksum $filename`
+    if [ "$line" = "$filecheck" ]
+    then
+        echo "$filename : OK"
+    else
+        echo "$filename : FAILED"
+    fi
+done < "$input"
